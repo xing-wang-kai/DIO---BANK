@@ -39,10 +39,17 @@ while True:
               """)
         deposito = int(input("VALOR: "))
 
-        saldo += deposito
-        print(f"Deposito Realizado com sucesso no valor {deposito}, saldo atual R$ {saldo:.2f}")
-        extrato.append(f"DATA: {datetime.now().strftime('%d-%m-%Y')}, Deposito no valor de {deposito} saldo atual R$ {saldo:.2f}")
-        continue
+        if deposito <= 0:
+            print("valor de depósito inválido, não é possivel depositar valores negativos")
+            print("Quanto deseja depositar?")
+            eposito = int(input("VALOR: "))
+        
+        else:
+
+            saldo += deposito
+            print(f"Deposito Realizado com sucesso no valor {deposito}, saldo atual R$ {saldo:.2f}")
+            extrato.append(f"DATA: {datetime.now().strftime('%d-%m-%Y')}, Deposito no valor de {deposito} saldo atual R$ {saldo:.2f}")
+            continue
 
     if option == 's':
         print("""
